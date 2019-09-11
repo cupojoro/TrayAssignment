@@ -5,12 +5,14 @@ Includes:
 	*StartPage.html
 	
 	*InputText.txt
+	*InputText2.txt
 	
 	*InputText_Fail1.txt
 	*InputText_Fail2.txt
 	*InputText_Fail3.txt
 	*InputText_Fail4.txt
 	*InputText_Fail5.txt
+	*InputText_BadMovement.txt
 	
 	
 Integration:
@@ -25,10 +27,13 @@ Dependencies and Testing:
 Usage:
 	1. Once the html file has been created please include both the Roomba.js file and all the support text
 files into the same directory; or as required by your source path.
-	2. Open up the HTML file in your favorite browser and follow the onscreen prompt to choose a file. The "InputText.txt" file
-will run successfully where as all other .txt files included will test a failure point.
+	2. Open up the HTML file in your favorite browser and follow the onscreen prompt to choose a file.
+		a. The "InputText.txt" and "InputText2.txt" files will run successfully where as all other *.txt files included will test a failure point.
 	3. Open the inspector (on Chrome, right click the webpage and select it from the toolbar) and navigate to the console tab.
 	4. All outputs will be logged in the console.
+	
+Expectations:
+	It is expected that a file is provided when the "processFile" function is run.
 	
 Cheers!
 

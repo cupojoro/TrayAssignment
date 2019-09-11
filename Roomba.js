@@ -18,6 +18,12 @@ class point
 			}
 			this.x = parseInt(couple[0], 10);
 			this.y = parseInt(couple[1], 10);
+			
+			//Included this since the catch doesn't seem to work.
+			if (isNaN(this.x) || isNaN(this.y))
+			{
+				throw("Value being parsed for point is not a number.");
+			}
 		}catch(e)
 		{
 			throw("Value being parsed for point is not a number.");
@@ -91,18 +97,22 @@ class Roomba
 		}
 		
 		[...this.navString].forEach((direction) => {
-			if (direction == "N" && this.currentLoc.y < this.dimensions.y)
+			if (direction == "N" )
 			{
-				this.currentLoc.y += 1;
-			}else if (direction == "S" && this.currentLoc.y > 0)
+				//Bounds Check
+				if(this.currentLoc.y < (this.dimensions.y - 1)) this.currentLoc.y += 1;
+			}else if (direction == "S")
 			{
-				this.currentLoc.y -= 1;
-			}else if( direction == "W" && this.currentLoc.x > 0)
+				//Bounds Check
+				if(this.currentLoc.y > 0) this.currentLoc.y -= 1;
+			}else if( direction == "W")
 			{
-				this.currentLoc.x -=1;
-			}else if(direction == "E" && this.currentLoc.x < this.dimensions.x)
+				//Bounds Check
+				if(this.currentLoc.x > 0) this.currentLoc.x -=1;
+			}else if(direction == "E")
 			{
-				this.currentLoc.x += 1;
+				//Bounds Check
+				if(this.currentLoc.x < (this.dimensions.x- 1)) this.currentLoc.x += 1;
 			}else
 			{
 				throw("Unknown Navigation: " + direction);
